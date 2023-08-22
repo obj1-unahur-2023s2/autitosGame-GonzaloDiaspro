@@ -1,0 +1,41 @@
+import wollok.game.*
+import autos.*
+
+
+
+program juegoAutos {
+
+	game.height(12)
+	game.width(12)
+	game.title("JuegoAutos")
+	game.ground("empedrado.jpg")
+	
+	
+	laMaquinola.position(game.at(0.randomUpTo(game.width()).truncate(0),
+				0.randomUpTo(game.height()).truncate(0)
+	))
+	game.addVisual(laMaquinola)
+	
+	
+	levantaNenas.position(game.at(0.randomUpTo(game.width()).truncate(0),
+		0.randomUpTo(game.height()).truncate(0)
+	))
+	game.addVisual(levantaNenas)
+	
+	
+	keyboard.up().onPressDo({
+		laMaquinola.arriba()
+	})
+	keyboard.down().onPressDo({
+		laMaquinola.abajo()
+	})
+	keyboard.left().onPressDo({
+		laMaquinola.izquierda()
+	})
+	keyboard.right().onPressDo({
+		laMaquinola.derecha()
+	})
+	
+	game.start()
+
+}
